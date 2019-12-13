@@ -1,0 +1,14 @@
+<body>
+     <!-- 公共头部 -->
+     <script type="text/javascript" src="../common/head.js"></script>
+     <!-- 容器 -->
+    <div id="container"></div>
+    <script>
+        console.log(window);
+        ShaderMgr.setShaderProgram("./vertexShader.vs", "./fragmentShader.fs")
+        ShaderMgr.init("container");
+
+        ShaderMgr.update(()=>{
+        })
+    </script>
+</body>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <script src="../../js/three.min.js"></script>
+    <script>
+        var container;
+        var camera, scene, renderer;
+        var uniforms;
+        var vertexShader, fragmentShader;
+
+        console.log(new THREE.Vector2())
+
+
+        read("./vertexShader.vs", (vertexShader) => {
+            read("./fragmentShader.fs", (fragmentShader) => {
+                init(vertexShader, fragmentShader);
+                animate();
+            })
+        })
+
+        function init(vertexShader, fragmentShader) {
+            container = document.getElementById('container');
+
+            camera = new THREE.Camera();
+            camera.position.z = 1;
+
+            scene = new THREE.Scene();
+
+            var geometry = new THREE.PlaneBufferGeometry(2, 2);
+
+            uniforms = {
+                u_time: { type: "f", value: 1.0 },
+                u_resolution: { type: "v2", value: new THREE.Vector2() }
+            };
+            console.log("uniforms", uniforms);
+
+            var material = new THREE.ShaderMaterial({
+                uniforms: uniforms,
+                vertexShader: vertexShader,
+                fragmentShader: fragmentShader,
+
+            });
+
+            var mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            container.appendChild(renderer.domElement);
+
+            onWindowResize();
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function onWindowResize(event) {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            uniforms.u_resolution.value.x = renderer.domElement.width;
+            uniforms.u_resolution.value.y = renderer.domElement.height;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            render();
+        }
+
+        function render() {
+            uniforms.u_time.value += 0.05;
+            renderer.render(scene, camera);
+        }
+
+        function read(path, callBack = () => { }) {
+            $.ajax({
+                url: path,
+                success: function (data, status) {
+                    callBack(data)
+                },
+                error: function (data, status) {
+                    console.error(`${path}`)
+                }
+            });
+        }
+    </script>
+</body>
