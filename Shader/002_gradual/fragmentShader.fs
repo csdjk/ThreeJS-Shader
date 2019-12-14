@@ -6,7 +6,7 @@
 precision mediump float;
 #endif
 //-------- uniform 变量------
-// 屏幕坐标
+// 屏幕大小
 uniform vec2 u_resolution;
 
 void main() {
