@@ -1,6 +1,6 @@
-// create by 长生但酒狂
+// Author: 长生但酒狂
 // create time : 2019-12-13 17:36
-// 渐变
+// Title：渐变色
 // ------------------------------【片元着色器】----------------------------
 #ifdef GL_ES
 precision mediump float;
@@ -10,6 +10,6 @@ precision mediump float;
 uniform vec2 u_resolution;
 
 void main() {
-	vec2 st = gl_FragCoord.xy/u_resolution;
-	gl_FragColor = vec4(st.x,st.y,0.0,1.0);
+	vec2 uv = gl_FragCoord.xy/u_resolution;
+	gl_FragColor = vec4(uv.x,uv.y,0.0,1.0);
 }

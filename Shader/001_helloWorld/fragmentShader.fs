@@ -1,7 +1,6 @@
-// create by 长生但酒狂
+// Author: 长生但酒狂
 // create time : 2019-12-13 17:26
-// 第一个GLSH demo 
-
+// Title：第一个GLSH demo
 // ------------------------------【片元着色器】----------------------------
 // uniform 统一变量：由js传递过来
 uniform float u_time;

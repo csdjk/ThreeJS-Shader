@@ -55,7 +55,7 @@ document.writeln(`
     <script src="../../js/ShaderMgr.js"></script>
 
     <script>
-        let pageList = ["002_gradual", "003_circle", "004_line", "005_sin"];
+        let pageList = ["002_gradual",  "003_line", "004_square" , "005_circle", "006_drawGraph", "007_drawGraph_pack", "008_shaderToy"];
 
         document.getElementById("pre").onclick = function (event) {
             let preIndex = getCureentPathIndex() - 1;
