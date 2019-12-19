@@ -5,11 +5,14 @@
 #ifdef GL_ES
 precision mediump float;
 #endif
-//-------- uniform 变量------
-// 屏幕大小
+//-------- uniform 变量, 由js传递过来------
+// 屏幕尺寸
 uniform vec2 u_resolution;
 
+// 
 void main() {
+	// uv坐标
 	vec2 uv = gl_FragCoord.xy/u_resolution;
+	// 输出
 	gl_FragColor = vec4(uv.x,uv.y,0.0,1.0);
 }

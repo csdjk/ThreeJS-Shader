@@ -11,9 +11,6 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform float u_time;
 
-vec3 colorA = vec3(0.625,1.000,0.250);
-vec3 colorB = vec3(0.014,0.021,1.000);
-
 void main() {
 	// gl_FragCoord: 当前像素坐标
 	// 用 gl_FragCoord.xy 除以 u_resolution，对坐标进行了规范化。
@@ -24,6 +21,7 @@ void main() {
 
 	// 一个圆
 	float pct = distance(vec2(0.600,0.460),uv);
+	// -----------可以一步一步的取消下面注释,看看效果,不同的方式叠加,造成不同的效果---------------
 	//椭圆
 	// pct = distance(uv,vec2(0.470,0.600)) + distance(uv,vec2(0.570,0.540));
 	//两个圆相吸
@@ -37,9 +35,7 @@ void main() {
 
 	// -----------------------------------------
 
-	// float col = step(radius,pct );
-
-	//  smoothstep 平滑渡过
+	//  smoothstep 平滑过渡
     float col = smoothstep(radius + 0.008,radius,pct ) ;
 
 	gl_FragColor = vec4(vec3(col),1);

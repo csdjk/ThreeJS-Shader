@@ -20,30 +20,34 @@
 
         console.log(new THREE.Vector2())
 
-
+        // 读取shader文件
+        // vertexShader : 顶点着色器
         read("./vertexShader.vs", (vertexShader) => {
+            // fragmentShader : 片元着色器
             read("./fragmentShader.fs", (fragmentShader) => {
                 init(vertexShader, fragmentShader);
                 animate();
             })
         })
 
+        // 初始化场景
         function init(vertexShader, fragmentShader) {
             container = document.getElementById('container');
 
+            // 摄像机
             camera = new THREE.Camera();
             camera.position.z = 1;
-
+            // 场景
             scene = new THREE.Scene();
-
+            // 创建一个平面
             var geometry = new THREE.PlaneBufferGeometry(2, 2);
-
+            // 统一变量
             uniforms = {
                 u_time: { type: "f", value: 1.0 },
                 u_resolution: { type: "v2", value: new THREE.Vector2() }
             };
             console.log("uniforms", uniforms);
-
+            // 材质
             var material = new THREE.ShaderMaterial({
                 uniforms: uniforms,
                 vertexShader: vertexShader,
@@ -53,7 +57,7 @@
 
             var mesh = new THREE.Mesh(geometry, material);
             scene.add(mesh);
-
+            // 渲染器
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -62,7 +66,7 @@
             onWindowResize();
             window.addEventListener('resize', onWindowResize, false);
         }
-
+        // 窗口大小变化
         function onWindowResize(event) {
             renderer.setSize(window.innerWidth, window.innerHeight);
             uniforms.u_resolution.value.x = renderer.domElement.width;
@@ -79,6 +83,7 @@
             renderer.render(scene, camera);
         }
 
+        // ajax 读取本地文件
         function read(path, callBack = () => { }) {
             $.ajax({
                 url: path,

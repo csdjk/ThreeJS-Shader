@@ -24,9 +24,6 @@ uniform float u_time;
 //
 // Video capture: https://www.youtube.com/watch?v=s_UOFo2IULQ
 
-
-
-
 #define AA 2  // Set AA to 1 if your machine is too slow
 
 

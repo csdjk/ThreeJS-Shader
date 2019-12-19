@@ -5,11 +5,13 @@
     <div id="container"></div>
     </script>
     <script>
-        console.log(window);
+        // 设置shader程序
         ShaderMgr.setShaderProgram("./vertexShader.vs", "./fragmentShader.fs")
+        // shader初始化
         ShaderMgr.init("container");
-
+        // 每帧调用一次
         ShaderMgr.update(() => {
+
         })
 
     </script>

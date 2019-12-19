@@ -1,3 +1,9 @@
+// Author: 长生但酒狂
+// create time : 2019-12-18
+// Title：切割格子
+
+// ------------------------------【片元着色器】----------------------------
+
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -29,7 +35,7 @@ vec2 splitGrid(vec2 _uv, float _zoom,float speed){
 //创建圆 - creator circle
 vec3 createCircle(vec2 pos,float radius,vec2 uv){
 	float pct = distance(pos,uv);
-    //  平滑渡过 - smoothstep
+    //  平滑过渡 - smoothstep
     return vec3(smoothstep(radius + 0.040,radius,pct )) ;
 }
 

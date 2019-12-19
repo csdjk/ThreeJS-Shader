@@ -1,5 +1,8 @@
-// Author:
-// Title:
+// Author: 长生但酒狂
+// create time : 2019-12-17
+// Title：炫丽的小齿轮
+
+// ------------------------------【片元着色器】----------------------------
 
 #ifdef GL_ES
 precision mediump float;
@@ -31,13 +34,15 @@ vec3 createGear(vec2 pos,float scale,vec2 uv){
 //
 void main(){
     vec2 uv = gl_FragCoord.xy/u_resolution.xy;
+    // uv.x *= u_resolution.x/u_resolution.y;
+
     vec3 gearleLists = vec3(0.014,0.054,0.210);
     gearleLists = vec3(0.014,0.054,0.210);
     float spaceX = 0.;
     float spaceY = 0.;
 
-    float speedX = 0.7;
-	 float speedY = 0.5;
+    float speedX = 0.3;
+	 float speedY = 0.1;
 	 float size = 25.0;
 	 for(int i = 0;i<31;i ++){
       spaceX += 0.1;

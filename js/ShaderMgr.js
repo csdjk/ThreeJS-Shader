@@ -102,6 +102,7 @@ window.ShaderMgr = (function () {
         renderer.render(scene, camera);
     }
 
+    // 每帧调用
     function update(func) {
         _update = func;
     }
