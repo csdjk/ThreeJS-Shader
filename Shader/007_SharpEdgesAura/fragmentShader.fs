@@ -1,9 +1,9 @@
+
 // Author: 长生但酒狂
-// create time : 2019-12-18
-// Title：切割格子
+// create time : 2019-12-16
+// Title：尖刃光环
 
 // ------------------------------【片元着色器】----------------------------
-
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -11,7 +11,7 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform float u_time;
 
-
+// 圆环
 vec3 createAnnulus(vec2 pos,float radius,float width,vec2 uv){
 	float dis = distance(pos,uv);
     float col = smoothstep(radius, radius+0.010,dis) - smoothstep(radius+width, radius+width+0.010,dis);
@@ -26,27 +26,23 @@ void main(void){
 
     vec3 color = vec3(0.0);
 	
-    vec2 center = vec2(0.5,0.5);
-    float radius = 0.3;//半径
-    float width = 0.020;//圆环宽度
-    float gap = 0.608; //尾部缺口
-    
-    
+    vec2 center = vec2(0.500,0.500);
+    float radius = 0.308;//半径
+    float width = 0.012;//圆环宽度
+    float gap = 1.392; //尾部缺口
    
 	//尾部缺口
+    //上方向向量
     vec2 upDir = normalize(vec2(0.5,1.) - center);
+	//当前向量 
     vec2 currentDir = normalize(uv - center);
-    
+    //角度
     float angle = dot(upDir,currentDir);
-    float tailRang = smoothstep(gap,gap+0.020,angle);
-	 float s = (1. - pow(abs(angle),1.)) * (1.-tailRang);
-    width = width * (1.-tailRang) * s ;
+    float tailRang = smoothstep(gap,gap+0.284,angle);
+	 float s = (1. - pow(abs(angle),1.));
+    width = width * s ;
      //圆环
     vec3 col = createAnnulus(center,radius,width,uv);
     
-    
-    col = col;
-
-
     gl_FragColor = vec4(vec3(col),1.0);
 }

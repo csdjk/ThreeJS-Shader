@@ -1,5 +1,5 @@
 // Author: 长生但酒狂
-// create time : 2019-12-15 18:00
+// create time : 2019-12-16
 // Title：练习: 结合造型函数绘制炫丽的图形
 
 #ifdef GL_ES
