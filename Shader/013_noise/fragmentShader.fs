@@ -48,7 +48,7 @@ float snoise(vec2 v) {
 void main() {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     st.x *= u_resolution.x/u_resolution.y;
-	
+
     st *= 4.0 ;
     vec3 color = vec3(0.);
 	 //自由度
@@ -57,7 +57,7 @@ void main() {
     float speed = 0.236;
    // 这里其实就是一个运动 加上一个静止的点 就形成了不断溶解的点
     DF += snoise(st+u_time*speed)+snoise(st);
-    
+
     color = vec3(smoothstep(0.5,0.62,DF));
 	 //取反
     gl_FragColor = vec4(1. - color,1.0);

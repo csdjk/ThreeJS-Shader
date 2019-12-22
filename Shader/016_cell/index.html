@@ -2,16 +2,15 @@
     <!-- 公共头部 -->
     <script type="text/javascript" src="../common/head.js"></script>
     <!-- 容器 -->
-    <div id="container"></div>
-    </script>
-    <script>
-        // 设置shader程序
-        ShaderMgr.setShaderProgram("./vertexShader.vs", "./fragmentShader.fs")
-        // shader初始化
-        ShaderMgr.init("container");
-        // 每帧调用一次
-        ShaderMgr.update(() => {
+   <div id="container"></div>
 
+    <script>
+        console.log(window);
+        ShaderMgr.setShaderProgram("./vertexShader.vs", "./fragmentShader.fs")
+        ShaderMgr.init("container");
+        // 每一帧调用
+        ShaderMgr.update(()=>{
+            console.log(1)
         })
     </script>
 </body>

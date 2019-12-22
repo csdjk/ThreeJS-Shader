@@ -28,9 +28,7 @@ void main()
      uv = tile(uv,3.);
     //width height ratio
     float ratio = u_resolution.x/u_resolution.y;
- 	//
-	uv.x = uv.x*ratio - 0.4;
-  
+
     vec3 color = vec3(0.0);
 
     vec2 pos = vec2(0.5)-uv;
@@ -42,8 +40,8 @@ void main()
 	 float f = f1*f2;
 
     color = vec3( 1.-smoothstep(f,f+0.02,radius) );
-      
+
     color = color * hsb2rgb(vec3((f+u_time),1.,1.000));
-      
+
     gl_FragColor = vec4(color, 1.0);
 }

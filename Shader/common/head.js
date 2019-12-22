@@ -43,6 +43,19 @@ document.writeln(`
             margin: 0;
             right: 0;
         }
+        #container{
+            width: 800px;
+            height: 800px;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            box-shadow: 13px 11px 5px #b7b7b7;
+            border: 1px solid #0966c5;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
@@ -54,10 +67,11 @@ document.writeln(`
     <div id="container"></div>
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
     <script src="../../js/three.min.js"></script>
+    <script src="../../js/stats.min.js"></script>
     <script src="../../js/ShaderMgr.js"></script>
 
     <script>
-        let pageList = ["002_gradual",  "003_line", "004_square" , "005_circle", "006_drawGraph", "007_drawGraph_pack", "008_shaderToy"];
+        let pageList = ["001_helloWorld","002_gradual",  "003_line", "004_square" , "005_circle", "006_drawGraph", "007_SharpEdgesAura", "008_fancyGraph","009_fancyGear","010_matrix","011_splitGrid","012_splitGrid_animation","013_noise","014_ripple","015_floridRipple","016_cell"];
 
         document.getElementById("pre").onclick = function (event) {
             let preIndex = getCureentPathIndex() - 1;
@@ -86,6 +100,18 @@ document.writeln(`
                 }
             }
         }
+
+        var stats = new Stats();
+        stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.body.appendChild(stats.dom);
+
+        function animate() {
+            stats.begin();
+            // monitored code goes here
+            stats.end();
+            requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
     </script>
 </body>
 

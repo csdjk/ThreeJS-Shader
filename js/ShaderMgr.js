@@ -79,13 +79,17 @@ window.ShaderMgr = (function () {
 
         container.appendChild(renderer.domElement);
         //重新调整窗体大小
-        onWindowResize();
-        window.addEventListener('resize', onWindowResize, false);
+        onWindowResize(container);
+        // window.addEventListener('resize', onWindowResize, false);
     }
 
     // 窗口大小改变会触发
-    function onWindowResize(event) {
-        renderer.setSize(window.innerWidth, window.innerHeight);
+    function onWindowResize(container) {
+        // let width = Math.min(window.innerWidth, window.innerHeight);
+        let width = container.clientWidth;
+        // console.log(document.getElementById("container").clientWidth);
+
+        renderer.setSize(width,width);
         uniforms.u_resolution.value.x = renderer.domElement.width;
         uniforms.u_resolution.value.y = renderer.domElement.height;
     }
