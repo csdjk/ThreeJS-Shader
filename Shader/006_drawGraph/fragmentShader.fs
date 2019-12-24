@@ -35,6 +35,7 @@ vec3 createAnnulus(vec2 pos,float radius,float width,vec2 uv){
 // 花瓣
 vec3 createPetal(vec2 pos,float scale,vec2 uv){
     vec2 dir = pos - uv;
+    // 转换为极坐标
     float radius = length(dir)*scale;
     float angle = atan(dir.y,dir.x);
 	//造型函数
@@ -44,6 +45,7 @@ vec3 createPetal(vec2 pos,float scale,vec2 uv){
 // 水滴
 vec3 createWaterDrop(vec2 pos,float scale,vec2 uv){
     vec2 dir = pos - uv;
+    // 转换为极坐标
     float radius = length(dir)*scale;
     float angle = atan(dir.y,dir.x);
 	//造型函数
@@ -54,9 +56,10 @@ vec3 createWaterDrop(vec2 pos,float scale,vec2 uv){
 // 风车
 vec3 createWindmill(vec2 pos,float scale,vec2 uv){
 	 vec2 dir = pos-uv;
+    // 转换为极坐标
     float radius = length(dir)*scale;
     float angle = atan(dir.y,dir.x);
-    
+	//造型函数
     float f = fract(angle*1.273 + u_time)*0.956;
     return vec3( 1.-smoothstep(f,f+0.092,radius) );
 }
@@ -64,6 +67,7 @@ vec3 createWindmill(vec2 pos,float scale,vec2 uv){
 // 齿轮
 vec3 createGear(vec2 pos,float scale,vec2 uv){
     vec2 dir = pos - uv;
+    // 转换为极坐标
     float radius = length(dir)*scale;
     float angle = atan(dir.y,dir.x);
 	//造型函数
@@ -74,6 +78,7 @@ vec3 createGear(vec2 pos,float scale,vec2 uv){
 // 创建...
 vec3 createD(vec2 pos,float scale,vec2 uv){
     vec2 dir = pos - uv;
+    // 转换为极坐标
     float radius = length(dir)*scale;
     float angle = atan(dir.y,dir.x);
   	 //造型函数
