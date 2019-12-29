@@ -86,19 +86,6 @@ vec3 createD(vec2 pos,float scale,vec2 uv){
     return vec3( 1.-smoothstep(f,f+0.02,radius));
 }
 
-// 心形
-vec3 createHeartShape(){
-    vec2 pos = (3.0*gl_FragCoord.xy-u_resolution.xy)/min(u_resolution.y,u_resolution.x);
-    float a = atan(pos.x,pos.y)/3.141593;
-    float r = length(pos);
-    float h = abs(a);
-    float d = (13.0*h - 22.0*h*h + 10.0*h*h*h)/(6.0-5.0*h);
-    float s = clamp(r/d,1.0,1.1);
-    s *= pow( 1.0-r/d, 0.1);
-    vec3 col = vec3(1.0,0.,0.)*s;
-    return col;
-}
-
 void main(){
     vec2 uv = gl_FragCoord.xy/u_resolution.xy;
 
