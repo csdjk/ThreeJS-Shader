@@ -146,8 +146,8 @@ void main() {
  	 
     float dif = GetLight(pos);
     
-//     vec4 sph = vec4( cos( u_time + vec3(2.0,1.0,1.0) + 0.0 )*vec3(1.5,0.0,1.0), 1.0 );sph.x = 1.0;
-//     float shadow = sphSoftShadow(pos,rd,sph,7.);
+    // vec4 sph = vec4( cos( u_time + vec3(2.0,1.0,1.0) + 0.0 )*vec3(1.5,0.0,1.0), 1.0 );sph.x = 1.0;
+    // float shadow = sphSoftShadow(pos,rd,sph,7.);
     
     color = vec3(dif) ;
     

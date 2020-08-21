@@ -71,7 +71,7 @@ document.writeln(`
     <script src="../../js/ShaderMgr.js"></script>
 
     <script>
-        let pageList = ["001_helloWorld","002_gradual",  "003_line", "004_square" , "005_circle", "006_drawGraph", "007_SharpEdgesAura", "008_fancyGraph","009_fancyGear","010_matrix","011_splitGrid","012_splitGrid_animation","013_noise","014_ripple","015_floridRipple","016_cell"];
+        let pageList = ["001_helloWorld","002_gradual",  "003_line", "004_square" , "005_circle", "006_drawGraph", "007_SharpEdgesAura", "008_fancyGraph","009_fancyGear","010_matrix","011_splitGrid","012_splitGrid_animation","013_noise","014_ripple","015_floridRipple","016_cell","017_distanceField_2D","018_rayMarching","019_sea2D"];
 
         document.getElementById("pre").onclick = function (event) {
             let preIndex = getCureentPathIndex() - 1;

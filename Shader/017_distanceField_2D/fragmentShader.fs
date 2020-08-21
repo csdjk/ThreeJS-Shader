@@ -58,6 +58,7 @@ float sdHexagram( in vec2 p, in float r )
     p -= vec2(clamp(p.x,r*k.z,r*k.w),r);
     return length(p)*sign(p.y);
 }
+
 void main() {
   vec2 p = (2.0*gl_FragCoord.xy - u_resolution.xy)/u_resolution.y;
   vec3 color = vec3(0.);

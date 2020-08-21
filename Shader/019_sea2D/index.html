@@ -2,14 +2,14 @@
     <!-- 公共头部 -->
     <script type="text/javascript" src="../common/head.js"></script>
     <!-- 容器 -->
-    <div id="container"></div>
+   <div id="container"></div>
 
     <script>
         console.log(window);
         ShaderMgr.setShaderProgram("./vertexShader.vs", "./fragmentShader.fs")
         ShaderMgr.init("container");
         // 每一帧调用
-        ShaderMgr.update(() => {
+        ShaderMgr.update(()=>{
             console.log(1)
         })
     </script>
