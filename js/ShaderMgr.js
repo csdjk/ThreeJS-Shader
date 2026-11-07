@@ -6,7 +6,6 @@ window.ShaderMgr = (function () {
     var vertexShaderPath, fragmentShaderPath;
     var vertexShaderProgram, fragmentShaderProgram;
     var _update = ()=>{};
-    console.log("12121");
 
     // 初始化
     function init(containerId) {

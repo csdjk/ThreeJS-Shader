@@ -62,8 +62,8 @@ float sdHexagram( in vec2 p, in float r )
 void main() {
   vec2 p = (2.0*gl_FragCoord.xy - u_resolution.xy)/u_resolution.y;
   vec3 color = vec3(0.);
-  float d = sdHexagram( p + vec2(0.000,0.020), 0.1 );
-  d = heartSDF(p);
+  // float d = sdHexagram( p + vec2(0.000,0.020), 0.1 );
+  float d = heartSDF(p);
   vec3 col = vec3(1.0) - sign(d);
   gl_FragColor = vec4(col,1.0);
 }

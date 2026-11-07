@@ -36,8 +36,9 @@ void main() {
 	// -----------可以一步一步的取消下面注释,看看效果,不同的方式叠加,造成不同的效果---------------
 	//椭圆
 	// pct = distance(uv,vec2(0.470,0.600)) + distance(uv,vec2(0.570,0.540));
+
 	//两个圆相吸
-    // pct = distance(uv,vec2(0.550,0.520)) * distance(uv,vec2(0.010,0.040));
+    pct = distance(uv,vec2(0.7,0.520)) * distance(uv,vec2(0.010,0.040));
 	//两个圆
     // pct = min(distance(uv,vec2(0.140,0.130)),distance(uv,vec2(0.660,0.600)));
 	//两个圆相交部分 - 可以用来做遮罩
